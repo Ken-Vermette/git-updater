@@ -2,12 +2,13 @@
 
 # Updates various git repositories registered in ~/git-update-locations.ini.
 # Format is as follows:
-# [mysite.com]
-# singleRepo=/path/to/repo
-# autoScanRepo=/path/to/repos/*
+# [MyProject]
+# firstRepo=/path/to/first/repo
+# secondRepo=/path/to/second/repo
+# allRepos=/path/to/repos/*
 #
-# git-update.sh mysite.com singleRepo
-# git-update.sh mysite.com autoScanRepo
+# git-update.sh MyProject firstRepo
+# git-update.sh MyProject allRepos
 #
 # If the value of a path ends with "*" it will look at all directories in that
 # location, if they have a git repo, it will run the pull.
@@ -20,6 +21,9 @@
 #
 # git-update.sh mywordpresssite.com theme
 # -> will update the theme from git.
+#
+# git-update.sh mywordpresssite.com plugins
+# -> will update all plugins found connected to git.
 
 if [ ! -f "$HOME/git-update-locations.ini" ]; then
 	"$HOME/git-update-locations.ini not found"
